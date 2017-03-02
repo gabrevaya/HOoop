@@ -18,13 +18,17 @@ class Generador(object):
 
         import math
 
-        cantidad_muestras = (tiempo_final - tiempo_inicial).seconds/\
-        self.frecuencia_muestreo
+        cantidad_muestras = int(((tiempo_final - tiempo_inicial).seconds/\
+        self.frecuencia_muestreo))
 
         muestras = range(cantidad_muestras)
-        #TODO agregar un ruido blanco a la senal
 
         ret = [self.amplitud*math.sin(2*(1/self.frecuencia)*i+self.fase) \
         for i in muestras]
+            
+        # agrego ruido blanco ruido blanco
+        mean = 0
+        std = 0.02
+        ruido = np.random.normal(mean, std, size=cantidad_muestras)
 
-        return ret
+        return ret+ruido
