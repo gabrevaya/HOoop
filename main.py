@@ -4,6 +4,7 @@ import blanco
 import generador
 import datetime
 import detector
+import numpy as np
 
 
 # DISCLAMER!!

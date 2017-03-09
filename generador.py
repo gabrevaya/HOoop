@@ -28,7 +28,7 @@ class Generador(object):
             
         # agrego ruido blanco ruido blanco
         mean = 0
-        std = 0.02
+        std = 0.01
         ruido = np.random.normal(mean, std, size=cantidad_muestras)
 
         return ret+ruido
